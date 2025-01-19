@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClinSearch</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 36px;
+            color: #d54e21;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #d54e21;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #d54e21;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #d54e21;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #b43c1a;
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+        .sidebar a {
+            margin: 10px 0;
+            text-decoration: none;
+        }
+        .sidebar img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="https://clinpr1.github.io/cl/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/2048px-Google_Chrome_icon_%28February_2022%29.svg.png" alt="Google Chrome">
+        </a>
+        <a href="https://discord.gg/pdeeGJTZyD" target="_blank">
+            <img src="https://static.vecteezy.com/system/resources/previews/023/986/880/non_2x/discord-logo-discord-logo-transparent-discord-icon-transparent-free-free-png.png" alt="Discord">
+        </a>
+    </div>
+
+    <div class="container">
+        <h1>ClinSearch</h1>
+        <form id="searchForm" onsubmit="return search()">
+            <input type="text" id="query" placeholder="Buscar..." required>
+            <select id="engine">
+                <option value="https://www.google.com/search">Google</option>
+                <option value="https://www.bing.com/search">Bing</option>
+                <option value="https://search.yahoo.com/search">Yahoo</option>
+                <option value="https://www.duckduckgo.com/">DuckDuckGo</option>
+                <option value="https://www.yandex.com/search">Yandex</option>
+                <option value="https://www.baidu.com/s">Baidu</option>
+                <option value="https://www.ecosia.org/search">Ecosia</option>
+                <option value="https://www.seznam.cz/hledani">Seznam</option>
+                <option value="https://www.qwant.com/">Qwant</option>
+                <option value="https://www.startpage.com/">StartPage</option>
+                <option value="https://www.brave.com/search">Brave Search</option>
+                <option value="https://www.wolframalpha.com/">WolframAlpha</option>
+                <option value="https://swisscows.com/">Swisscows</option>
+                <option value="https://www.mojeek.com/">Mojeek</option>
+                <option value="https://www.metager.de/">MetaGer</option>
+                <option value="https://www.gibiru.com/">Gibiru</option>
+                <option value="https://www.oscobo.com/">Oscobo</option>
+                <option value="https://www.searchencrypt.com/">Search Encrypt</option>
+                <option value="https://www.searx.me/">SearX</option>
+                <option value="https://www.lukol.com/">Lukol</option>
+                <option value="https://www.infinitysearch.co/">Infinity Search</option>
+            </select>
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
+
+    <script>
+        function search() {
+            const query = document.getElementById('query').value;
+            const engine = document.getElementById('engine').value;
+            
+            // Redirigir a la URL del motor de búsqueda con la consulta
+            window.location.href = engine + '?q=' + encodeURIComponent(query);
+            return false; // Prevenir el envío del formulario
+        }
+    </script>
+</body>
+</html>
