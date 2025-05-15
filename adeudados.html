@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trabajos Adeudados</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0f0f0f;
+      font-family: 'Segoe UI', sans-serif;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffff, #00ff66, #ffcc00, #ff0066);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 8s linear infinite;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    .item {
+      background: #1e1e1e;
+      padding: 1rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .item:hover {
+      transform: scale(1.02);
+    }
+
+    .item h2 {
+      color: #00ffff;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .item img {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #333;
+      margin-bottom: 1rem;
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+    }
+
+    /* Lightbox Styles */
+    #lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      cursor: zoom-out;
+    }
+  </style>
+</head>
+<body>
+  <h1>TRABAJOS ADEUDADOS</h1>
+
+  <div class="gallery">
+    <div class="item">
+      <h2>Boceto y dibujo de personajes</h2>
+      <img src="1.png" alt="Boceto y dibujo de personajes" onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="item">
+      <h2>Bansky. F. Retóricas.</h2>
+      <img src="2.png" alt="Bansky. F. Retóricas." onclick="openLightbox(this.src)">
+    </div>
+
+    <div class="item">
+      <h2>Malvinas</h2>
+      <img src="3.png" alt="Malvinas 1" onclick="openLightbox(this.src)">
+      <img src="4.png" alt="Malvinas 2" onclick="openLightbox(this.src)">
+    </div>
+  </div>
+
+  <!-- Lightbox Element -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img src="" alt="Imagen ampliada" id="lightbox-img">
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
